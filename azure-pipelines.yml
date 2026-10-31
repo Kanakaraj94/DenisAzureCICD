@@ -45,9 +45,9 @@ stages:
     - task: AzureResourceGroupDeployment@2
       displayName: "Deploy ARM Template to UAT Data Factory"
       inputs:
-        azureSubscription: "DEVUATPRODConn1"
+        azureSubscription: "DEVUATPRODconn"
         action: "Create Or Update Resource Group"
-        resourceGroupName: "AzureDevOps_rg"
+        resourceGroupName: "denisCICD_rg"
         location: "East US"
 
         templateLocation: "Linked artifact"
@@ -57,9 +57,9 @@ stages:
         csmParametersFile: "$(Build.SourcesDirectory)/ARMTemplateParametersForFactory.json"
 
         overrideParameters: >
-          -factoryName "kanakdf-uat"
+          -factoryName "denisdfuat"
           -adf2adls_ls_accountKey "$(uat_adls_account_key)"
-          -adf2adls_ls_properties_typeProperties_url "https://kanakadlsuat.dfs.core.windows.net/"
+          -adf2adls_ls_properties_typeProperties_url "https://denisdfuat.dfs.core.windows.net/"
 
 
 
@@ -83,9 +83,9 @@ stages:
     - task: AzureResourceGroupDeployment@2
       displayName: "Deploy ARM Template to PROD Data Factory"
       inputs:
-        azureSubscription: "DEVUATPRODConn1"
+        azureSubscription: "DEVUATPRODconn"
         action: "Create Or Update Resource Group"
-        resourceGroupName: "AzureDevOps_rg"
+        resourceGroupName: "denisCICD_rg"
         location: "East US"
 
         templateLocation: "Linked artifact"
@@ -95,8 +95,8 @@ stages:
         csmParametersFile: "$(Build.SourcesDirectory)/ARMTemplateParametersForFactory.json"
 
         overrideParameters: >
-          -factoryName "kanakdf-prod"
+          -factoryName "denisdfprod"
           -adf2adls_ls_accountKey "$(prod_adls_account_key)"
-          -adf2adls_ls_properties_typeProperties_url "https://kanakadlsprod.dfs.core.windows.net/"
+          -adf2adls_ls_properties_typeProperties_url "https://denisdfprod.dfs.core.windows.net/"
 
         deploymentMode: Incremental
