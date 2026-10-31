@@ -58,8 +58,8 @@ stages:
 
         overrideParameters: >
           -factoryName "denisdfuat"
-          -adf2adls_ls_accountKey "$(uat_adls_account_key)"
-          -adf2adls_ls_properties_typeProperties_url "https://denisdfuat.dfs.core.windows.net/"
+          -adls2adf_ls_accountKey "$(uat_adls_account_key)"
+          -adls2adf_ls_properties_typeProperties_url "https://denisdfuat.dfs.core.windows.net/"
 
 
 
@@ -96,7 +96,7 @@ stages:
 
         overrideParameters: >
           -factoryName "denisdfprod"
-          -adf2adls_ls_accountKey "$(prod_adls_account_key)"
-          -adf2adls_ls_properties_typeProperties_url "https://denisdfprod.dfs.core.windows.net/"
+          -adls2adf_ls_accountKey "$(prod_adls_account_key)"
+          -adls2adf_ls_properties_typeProperties_url "https://denisdfprod.dfs.core.windows.net/"
 
         deploymentMode: Incremental
